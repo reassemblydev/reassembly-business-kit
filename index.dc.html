@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reassembly — Digital Business Tools &amp; Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Six+Caps&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://js.stripe.com/v3"></script>
+<style>
+@font-face{font-family:"Bould";src:url("./fonts/bould-light.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Bould";src:url("./fonts/bould-regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Bould";src:url("./fonts/bould-medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Bulevar";src:url("./fonts/Bulevar-Poster.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Bulevar Text";src:url("./fonts/Bulevar-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+:root{
+  --paper:#F4F1EA; --paper2:#EAE5DA; --ink:#1B1815; --ink70:#5A534C; --ink40:#8E877F;
+  --accent:#C0552C; --accent2:#2C7C6E; --line:rgba(27,24,21,.14);
+  --display:"Archivo","Manufaktur",Helvetica,sans-serif;
+  --body:"Bould","Outfit",Helvetica,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:400;font-size:16px;line-height:1.4;letter-spacing:.05em;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--accent)}
+h1,h2,h3{margin:0;font-family:var(--display);font-style:italic;font-weight:700;letter-spacing:-.015em;line-height:1.15}
+p{margin:0}
+summary::-webkit-details-marker{display:none}
+summary{list-style:none;cursor:pointer}
+details[open] .plus{transform:rotate(45deg)}
+input,textarea,button{font:inherit;letter-spacing:inherit;color:inherit}
+::placeholder{color:var(--ink40)}
+</style>
+</helmet>
+
+<div style="max-width:100%;overflow-x:hidden">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(244,241,234,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)">
+  <div style="max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:28px">
+    <a href="#top" style="display:flex;align-items:center"><img src="./assets/logo-rco-ink.svg" alt="Reassembly" style="height:17px;width:auto;display:block"></a>
+    <nav style="margin-left:auto;display:flex;align-items:center;gap:26px;font-size:13px;letter-spacing:.08em;text-transform:uppercase">
+      <a href="#services" style="color:var(--ink70)">Services</a>
+      <a href="#process" style="color:var(--ink70)">Process</a>
+      <a href="#work" style="color:var(--ink70)">Work</a>
+      <a href="#kit" style="color:var(--ink70)">Pricing</a>
+      <a href="#kit" style="display:inline-flex;align-items:center;background:var(--ink);color:var(--paper);padding:11px 18px;border-radius:999px;letter-spacing:.08em" style-hover="background:var(--accent)">Get the kit</a>
+    </nav>
+  </div>
+</header>
+
+<section id="top" style="max-width:1180px;margin:0 auto;padding:96px 28px 84px">
+  <div data-reveal style="display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink40)">
+    <span style="width:26px;height:1px;background:var(--accent)"></span>Digital tools &amp; services that harness
+  </div>
+  <h1 data-reveal ref="{{ fitRef }}" style="margin-top:26px;font-family:'Bulevar','Six Caps',sans-serif;font-style:normal;font-weight:400;text-transform:uppercase;white-space:nowrap;line-height:.86;letter-spacing:0;font-size:9vw;width:100%">Attention + Efficiency</h1>
+  <p data-reveal style="margin-top:32px;max-width:56ch;font-size:20px;font-weight:300;line-height:1.7;letter-spacing:.05em;color:var(--ink70)">Brand Identity Design gets your business attention. Efficiency gives it the competitive advantage that gives you freedom to live the life you dreamed of when you started your business.</p>
+  <div data-reveal style="margin-top:40px;display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+    <a href="#kit" style="display:inline-flex;align-items:center;background:var(--accent);color:#fff;padding:16px 28px;border-radius:999px;font-size:14px;letter-spacing:.08em;text-transform:uppercase" style-hover="background:var(--ink)">Business Kit 1.0</a>
+    <a href="#contact" style="display:inline-flex;align-items:center;padding:16px 26px;border:1px solid var(--line);border-radius:999px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink70)" style-hover="border-color:var(--ink);color:var(--ink)">Talk to us</a>
+  </div>
+  <div data-reveal style="margin-top:72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div style="background:var(--paper);padding:26px 22px"><div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:32px">5</div><div style="margin-top:6px;font-size:13px;color:var(--ink70)">disciplines, one team</div></div>
+    <div style="background:var(--paper);padding:26px 22px"><div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:32px">6 wks</div><div style="margin-top:6px;font-size:13px;color:var(--ink70)">from kickoff to live</div></div>
+    <div style="background:var(--paper);padding:26px 22px"><div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:32px">1</div><div style="margin-top:6px;font-size:13px;color:var(--ink70)">fixed price, no retainers</div></div>
+    <div style="background:var(--paper);padding:26px 22px"><div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:32px">100%</div><div style="margin-top:6px;font-size:13px;color:var(--ink70)">yours to keep and run</div></div>
+  </div>
+</section>
+
+<section id="services" style="border-top:1px solid var(--line);background:var(--paper2)">
+  <div style="max-width:1180px;margin:0 auto;padding:88px 28px">
+    <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-end;justify-content:space-between">
+      <h2 data-reveal style="font-size:clamp(30px,3.6vw,46px);max-width:22ch">What we do</h2>
+      <p data-reveal style="max-width:44ch;font-size:16px;line-height:1.7;color:var(--ink70)">Each piece is useful alone. Together they stop your team from re-typing the same information into five tools.</p>
+    </div>
+    <div style="margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px">
+      <div data-reveal style="background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px">
+        <div style="font-size:12px;letter-spacing:.1em;color:var(--accent)">01</div>
+        <h3 style="margin-top:14px;font-size:20px">Brand Identity</h3>
+        <p style="margin-top:12px;font-size:15px;line-height:1.7;color:var(--ink70)">Wordmark, type system, colour, and a short set of rules your team can actually apply without asking us.</p>
+      </div>
+      <div data-reveal style="background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px">
+        <div style="font-size:12px;letter-spacing:.1em;color:var(--accent)">02</div>
+        <h3 style="margin-top:14px;font-size:20px">Web Site</h3>
+        <p style="margin-top:12px;font-size:15px;line-height:1.7;color:var(--ink70)">A fast site you can edit yourself, wired to your forms, your calendar and your payments.</p>
+      </div>
+      <div data-reveal style="background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px">
+        <div style="font-size:12px;letter-spacing:.1em;color:var(--accent)">03</div>
+        <h3 style="margin-top:14px;font-size:20px">Social Media</h3>
+        <p style="margin-top:12px;font-size:15px;line-height:1.7;color:var(--ink70)">Profiles set up properly, templates for the posts you make weekly, and a calendar you can keep.</p>
+      </div>
+      <div data-reveal style="background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px">
+        <div style="font-size:12px;letter-spacing:.1em;color:var(--accent)">04</div>
+        <h3 style="margin-top:14px;font-size:20px">Marketing Automation</h3>
+        <p style="margin-top:12px;font-size:15px;line-height:1.7;color:var(--ink70)">Lead capture, follow-up sequences and reporting, so no enquiry sits unanswered overnight.</p>
+      </div>
+      <div data-reveal style="background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px">
+        <div style="font-size:12px;letter-spacing:.1em;color:var(--accent)">05</div>
+        <h3 style="margin-top:14px;font-size:20px">Operations Automation</h3>
+        <p style="margin-top:12px;font-size:15px;line-height:1.7;color:var(--ink70)">Quotes, invoices, handoffs and internal alerts — the repetitive work moved off people's desks.</p>
+      </div>
+      <div data-reveal style="background:var(--ink);color:var(--paper);border-radius:6px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:20px">
+        <h3 style="font-size:20px;color:var(--paper)">All five, as one kit</h3>
+        <a href="#kit" style="color:var(--paper);font-size:14px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid rgba(244,241,234,.4);padding-bottom:4px;align-self:flex-start" style-hover="border-color:var(--paper)">See Business Kit 1.0</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="border-top:1px solid var(--line)">
+  <div style="max-width:1180px;margin:0 auto;padding:88px 28px">
+    <h2 data-reveal style="font-size:clamp(30px,3.6vw,46px)">How it works</h2>
+    <div style="margin-top:48px;display:grid;gap:1px;background:var(--line)">
+      <div data-reveal style="background:var(--paper);display:grid;grid-template-columns:minmax(90px,120px) minmax(0,1fr) minmax(0,1.2fr);gap:24px;padding:28px 4px">
+        <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:32px;color:var(--accent)">Week 1</div>
+        <h3 style="font-size:20px;align-self:center">Take it apart</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--ink70);align-self:center">Two workshops. We map what you sell, who buys it, and every tool and manual step in between.</p>
+      </div>
+      <div data-reveal style="background:var(--paper);display:grid;grid-template-columns:minmax(90px,120px) minmax(0,1fr) minmax(0,1.2fr);gap:24px;padding:28px 4px">
+        <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:32px;color:var(--accent)">Week 2–3</div>
+        <h3 style="font-size:20px;align-self:center">Design the parts</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--ink70);align-self:center">Identity and site design in parallel with an automation plan, reviewed together so nothing is designed in isolation.</p>
+      </div>
+      <div data-reveal style="background:var(--paper);display:grid;grid-template-columns:minmax(90px,120px) minmax(0,1fr) minmax(0,1.2fr);gap:24px;padding:28px 4px">
+        <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:32px;color:var(--accent)">Week 4–5</div>
+        <h3 style="font-size:20px;align-self:center">Reassemble</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--ink70);align-self:center">Build, connect and test: site live, socials live, sequences and internal workflows running on your real data.</p>
+      </div>
+      <div data-reveal style="background:var(--paper);display:grid;grid-template-columns:minmax(90px,120px) minmax(0,1fr) minmax(0,1.2fr);gap:24px;padding:28px 4px">
+        <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:32px;color:var(--accent)">Week 6</div>
+        <h3 style="font-size:20px;align-self:center">Hand over the keys</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--ink70);align-self:center">Recorded walkthroughs, written rules, and 30 days of support while your team drives it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="border-top:1px solid var(--line);background:var(--ink);color:var(--paper)">
+  <div style="max-width:1180px;margin:0 auto;padding:88px 28px">
+    <h2 data-reveal style="font-size:clamp(30px,3.6vw,46px);color:var(--paper)">Case studies</h2>
+    <div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px">
+      <article data-reveal>
+        <div style="aspect-ratio:4/3;border:1px solid rgba(244,241,234,.2);border-radius:6px;background-image:repeating-linear-gradient(135deg,rgba(244,241,234,.09) 0 8px,transparent 8px 16px);display:flex;align-items:flex-end;padding:16px">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.06em;color:rgba(244,241,234,.6)">project shot — dealership floor</span>
+        </div>
+        <div style="margin-top:18px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)">Automotive retail</div>
+        <h3 style="margin-top:10px;font-size:20px;color:var(--paper)">Auto Dealership Inventory Segmentation</h3>
+        <p style="margin-top:12px;font-size:15px;line-height:1.7;color:rgba(244,241,234,.7)">Stock split into demand tiers and pushed automatically to listings and ad sets, replacing a weekly spreadsheet pass.</p>
+      </article>
+      <article data-reveal>
+        <div style="aspect-ratio:4/3;border:1px solid rgba(244,241,234,.2);border-radius:6px;background-image:repeating-linear-gradient(135deg,rgba(244,241,234,.09) 0 8px,transparent 8px 16px);display:flex;align-items:flex-end;padding:16px">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.06em;color:rgba(244,241,234,.6)">project shot</span>
+        </div>
+        <div style="margin-top:18px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)">[ sector ]</div>
+        <h3 style="margin-top:10px;font-size:20px;color:var(--paper)">[ Second case study title ]</h3>
+        <p style="margin-top:12px;font-size:15px;line-height:1.7;color:rgba(244,241,234,.7)">Send us the project name, one sentence of what changed, and one number — we will drop it in here.</p>
+      </article>
+      <article data-reveal>
+        <div style="aspect-ratio:4/3;border:1px solid rgba(244,241,234,.2);border-radius:6px;background-image:repeating-linear-gradient(135deg,rgba(244,241,234,.09) 0 8px,transparent 8px 16px);display:flex;align-items:flex-end;padding:16px">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.06em;color:rgba(244,241,234,.6)">project shot</span>
+        </div>
+        <div style="margin-top:18px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)">[ sector ]</div>
+        <h3 style="margin-top:10px;font-size:20px;color:var(--paper)">[ Third case study title ]</h3>
+        <p style="margin-top:12px;font-size:15px;line-height:1.7;color:rgba(244,241,234,.7)">Same again — a placeholder until you pick the third story worth telling.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="kit" style="border-top:1px solid var(--line)">
+  <div style="max-width:1180px;margin:0 auto;padding:88px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
+    <div data-reveal>
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink40)">One price, everything in it</div>
+      <h2 style="margin-top:18px;font-size:clamp(30px,3.6vw,46px)">Business Kit 1.0</h2>
+      <p style="margin-top:20px;max-width:46ch;font-size:16px;line-height:1.7;color:var(--ink70)">The full reassembly: brand, site, social, marketing and operations automation, delivered in six weeks and handed over documented.</p>
+      <ul style="margin:30px 0 0;padding:0;list-style:none;display:grid;gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+        <li style="background:var(--paper);padding:15px 2px;font-size:15px;display:flex;gap:14px"><span style="color:var(--accent)">01</span>Brand Identity</li>
+        <li style="background:var(--paper);padding:15px 2px;font-size:15px;display:flex;gap:14px"><span style="color:var(--accent)">02</span>Web Site</li>
+        <li style="background:var(--paper);padding:15px 2px;font-size:15px;display:flex;gap:14px"><span style="color:var(--accent)">03</span>Social Media</li>
+        <li style="background:var(--paper);padding:15px 2px;font-size:15px;display:flex;gap:14px"><span style="color:var(--accent)">04</span>Marketing Automation</li>
+        <li style="background:var(--paper);padding:15px 2px;font-size:15px;display:flex;gap:14px"><span style="color:var(--accent)">05</span>Operations Automation</li>
+      </ul>
+    </div>
+    <div data-reveal style="background:var(--paper2);border:1px solid var(--line);border-radius:8px;padding:34px">
+      <div style="display:flex;align-items:flex-end;gap:10px">
+        <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:clamp(40px,5vw,64px);line-height:1">{{ priceLabel }}</div>
+        <div style="font-size:13px;color:var(--ink40);padding-bottom:12px">one-time</div>
+      </div>
+      <p style="margin-top:14px;font-size:14px;line-height:1.7;color:var(--ink70)">Paid in full at kickoff, or split into two — ask us. Includes 30 days of post-launch support.</p>
+      <button type="button" onClick="{{ startCheckout }}" style="margin-top:26px;width:100%;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:18px 22px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s ease" style-hover="background:var(--accent)">{{ payButtonLabel }}</button>
+      <div style="margin-top:14px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink40)">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--accent2)"></span>Secure checkout hosted by Stripe · cards, Apple&nbsp;Pay, Link
+      </div>
+      <div style="margin-top:18px;font-size:13px;line-height:1.7;color:var(--ink70);white-space:pre-line">{{ payNote }}</div>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line);background:var(--paper2)">
+  <div style="max-width:1180px;margin:0 auto;padding:80px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px">
+    <blockquote data-reveal style="margin:0;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:32px">
+      <p style="font-family:var(--display);font-style:italic;font-weight:600;font-size:22px;line-height:1.4">"[ One sentence from a client about what changed after launch. ]"</p>
+      <footer style="margin-top:22px;font-size:13px;color:var(--ink40)">[ Name ], [ Role ] — [ Company ]</footer>
+    </blockquote>
+    <blockquote data-reveal style="margin:0;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:32px">
+      <p style="font-family:var(--display);font-style:italic;font-weight:600;font-size:22px;line-height:1.4">"[ A second quote — ideally one that names a number. ]"</p>
+      <footer style="margin-top:22px;font-size:13px;color:var(--ink40)">[ Name ], [ Role ] — [ Company ]</footer>
+    </blockquote>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line)">
+  <div style="max-width:1180px;margin:0 auto;padding:88px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:start">
+    <h2 data-reveal style="font-size:clamp(30px,3.6vw,46px)">Questions we get</h2>
+    <div data-reveal style="display:grid;gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+      <details style="background:var(--paper);padding:20px 2px">
+        <summary style="display:flex;gap:16px;align-items:center;font-size:16px"><span class="plus" style="color:var(--accent);transition:transform .2s ease">+</span>Can we buy one piece instead of the kit?</summary>
+        <p style="margin:14px 0 4px 32px;font-size:15px;line-height:1.7;color:var(--ink70)">Yes. The kit is the best value, but identity, site or automation can each be scoped on its own.</p>
+      </details>
+      <details style="background:var(--paper);padding:20px 2px">
+        <summary style="display:flex;gap:16px;align-items:center;font-size:16px"><span class="plus" style="color:var(--accent);transition:transform .2s ease">+</span>What do you need from us?</summary>
+        <p style="margin:14px 0 4px 32px;font-size:15px;line-height:1.7;color:var(--ink70)">One decision-maker available for two workshops and weekly reviews, plus access to the tools you already pay for.</p>
+      </details>
+      <details style="background:var(--paper);padding:20px 2px">
+        <summary style="display:flex;gap:16px;align-items:center;font-size:16px"><span class="plus" style="color:var(--accent);transition:transform .2s ease">+</span>Who owns the work?</summary>
+        <p style="margin:14px 0 4px 32px;font-size:15px;line-height:1.7;color:var(--ink70)">You do — files, accounts and automations are in your name from day one.</p>
+      </details>
+      <details style="background:var(--paper);padding:20px 2px">
+        <summary style="display:flex;gap:16px;align-items:center;font-size:16px"><span class="plus" style="color:var(--accent);transition:transform .2s ease">+</span>Do you stay on afterwards?</summary>
+        <p style="margin:14px 0 4px 32px;font-size:15px;line-height:1.7;color:var(--ink70)">Only if it helps. Thirty days of support are included; after that, a light monthly option is available.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-top:1px solid var(--line);background:var(--ink);color:var(--paper)">
+  <div style="max-width:1180px;margin:0 auto;padding:88px 28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:start">
+    <div data-reveal>
+      <h2 style="font-size:clamp(30px,3.6vw,46px);color:var(--paper)">Start a conversation</h2>
+      <p style="margin-top:20px;max-width:40ch;font-size:16px;line-height:1.7;color:rgba(244,241,234,.7)">Tell us what is held together with tape right now. We reply within one business day.</p>
+      <a href="mailto:hello@reassembly.co" style="display:inline-block;margin-top:24px;color:var(--paper);font-size:15px;border-bottom:1px solid rgba(244,241,234,.4);padding-bottom:3px">hello@reassembly.co</a>
+    </div>
+    <form data-reveal onSubmit="{{ submitContact }}" style="display:grid;gap:16px">
+      <input name="name" placeholder="Name" style="background:transparent;border:0;border-bottom:1px solid rgba(244,241,234,.3);padding:14px 2px;color:var(--paper);outline:none">
+      <input name="company" placeholder="Company" style="background:transparent;border:0;border-bottom:1px solid rgba(244,241,234,.3);padding:14px 2px;color:var(--paper);outline:none">
+      <input name="email" type="email" placeholder="Email" style="background:transparent;border:0;border-bottom:1px solid rgba(244,241,234,.3);padding:14px 2px;color:var(--paper);outline:none">
+      <textarea name="message" rows="4" placeholder="What needs reassembling?" style="background:transparent;border:0;border-bottom:1px solid rgba(244,241,234,.3);padding:14px 2px;color:var(--paper);outline:none;resize:vertical"></textarea>
+      <button type="submit" style="justify-self:start;margin-top:8px;background:var(--paper);color:var(--ink);border:0;border-radius:999px;padding:16px 28px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer" style-hover="background:var(--accent);color:#fff">Send it</button>
+    </form>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--line)">
+  <div style="max-width:1180px;margin:0 auto;padding:36px 28px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink40)">
+    <img src="./assets/logo-rco-ink.svg" alt="Reassembly" style="height:15px;width:auto;display:block">
+    <div style="display:flex;flex-wrap:wrap;gap:22px">
+      <a href="#top" style="color:var(--ink40)">Privacy</a>
+      <a href="#top" style="color:var(--ink40)">Terms</a>
+      <a href="#top" style="color:var(--ink40)">Refunds</a>
+    </div>
+    <div>© 2026 Reassembly. All rights reserved.</div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;priceLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;$4,999&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Business Kit&quot;},&quot;payButtonLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Buy&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Business Kit&quot;},&quot;stripePublishableKey&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;pk_test_STUB_replace_me&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Stripe&quot;},&quot;checkoutEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;/api/create-checkout-session&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Stripe&quot;},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C0552C&quot;,&quot;options&quot;:[&quot;#C0552C&quot;,&quot;#2C7C6E&quot;,&quot;#1B1815&quot;,&quot;#3D3082&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;paperColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#F4F1EA&quot;,&quot;options&quot;:[&quot;#F4F1EA&quot;,&quot;#F6F5F2&quot;,&quot;#EFEAE0&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;reveals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;}}">
+class Component extends DCLogic {
+  state = { payNote: "" };
+
+  componentDidMount() {
+    this.applyTheme();
+    if (this.props.reveals === false) return;
+    const nodes = Array.from(document.querySelectorAll("[data-reveal]"));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.style.opacity = "1";
+        e.target.style.transform = "none";
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    nodes.forEach((n, i) => {
+      const seen = n.getBoundingClientRect().top < window.innerHeight * 0.9;
+      n.style.transition = "opacity .7s cubic-bezier(.22,.7,.2,1) " + Math.min(i % 6, 5) * 60 + "ms, transform .7s cubic-bezier(.22,.7,.2,1) " + Math.min(i % 6, 5) * 60 + "ms";
+      if (seen) return;
+      n.style.opacity = "0";
+      n.style.transform = "translateY(16px)";
+      io.observe(n);
+    });
+  }
+
+  componentDidUpdate() { this.applyTheme(); }
+
+  applyTheme() {
+    const r = document.documentElement.style;
+    if (this.props.accentColor) r.setProperty("--accent", this.props.accentColor);
+    if (this.props.paperColor) r.setProperty("--paper", this.props.paperColor);
+  }
+
+  startCheckout = async () => {
+    const pk = (this.props.stripePublishableKey || "").trim();
+    const endpoint = (this.props.checkoutEndpoint || "/api/create-checkout-session").trim();
+    if (!pk || pk.indexOf("pk_") !== 0 || pk.indexOf("STUB") > -1) {
+      this.setState({ payNote:
+        "Stripe is wired but stubbed.\n\n1. Paste your publishable key into the stripePublishableKey tweak (pk_live_… / pk_test_…).\n2. Host an endpoint at " + endpoint + " that creates a Checkout Session for the Business Kit price and returns { id }.\n3. This button then calls stripe.redirectToCheckout({ sessionId: id }).\n\nSecret keys must stay server-side — never in this page." });
+      return;
+    }
+    if (!window.Stripe) { this.setState({ payNote: "stripe.js did not load — check the network or an ad blocker." }); return; }
+    this.setState({ payNote: "Creating a secure Stripe Checkout session…" });
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ product: "business-kit-1.0", quantity: 1 })
+      });
+      if (!res.ok) throw new Error("endpoint returned " + res.status);
+      const data = await res.json();
+      const stripe = window.Stripe(pk);
+      const out = await stripe.redirectToCheckout({ sessionId: data.id || data.sessionId });
+      if (out && out.error) throw new Error(out.error.message);
+    } catch (err) {
+      this.setState({ payNote: "Checkout failed: " + err.message + "\nEndpoint: " + endpoint });
+    }
+  };
+
+  submitContact = (e) => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const body = ["Company: " + (f.get("company") || "—"), "Email: " + (f.get("email") || "—"), "", f.get("message") || ""].join("\n");
+    window.location.href = "mailto:hello@reassembly.co?subject=" + encodeURIComponent("Enquiry from " + (f.get("name") || "the site")) + "&body=" + encodeURIComponent(body);
+  };
+
+  fit = (el) => {
+    if (!el || !el.parentElement) return;
+    const p = el.parentElement;
+    const cs = getComputedStyle(p);
+    const avail = p.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    const prevDisplay = el.style.display;
+    el.style.display = "inline-block";
+    el.style.fontSize = "100px";
+    let w = 0;
+    const node = el.firstChild;
+    if (node && node.nodeType === 3) {
+      const r = document.createRange();
+      r.selectNodeContents(el);
+      w = r.getBoundingClientRect().width;
+    }
+    if (!w) w = el.getBoundingClientRect().width;
+    el.style.display = prevDisplay;
+    if (w) el.style.fontSize = (100 * avail / w * 1.008).toFixed(2) + "px";
+  };
+
+  setFitRef = (el) => {
+    if (!el) return;
+    const run = () => this.fit(el);
+    run();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(run);
+    if (!this.ro) { this.ro = new ResizeObserver(run); this.ro.observe(document.body); }
+  };
+
+  componentWillUnmount() { if (this.ro) this.ro.disconnect(); }
+
+  renderVals() {
+    return {
+      fitRef: this.setFitRef,
+      priceLabel: this.props.priceLabel ?? "$4,999",
+      payButtonLabel: this.props.payButtonLabel ?? "Buy",
+      payNote: this.state.payNote,
+      startCheckout: this.startCheckout,
+      submitContact: this.submitContact
+    };
+  }
+}
+</script>
+</body>
+</html>

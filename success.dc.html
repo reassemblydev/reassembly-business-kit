@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank you — Reassembly</title>
+<style>
+@font-face{font-family:"Bould";src:url("./fonts/bould-light.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Bould";src:url("./fonts/bould-regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Bould";src:url("./fonts/bould-medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Bulevar";src:url("./fonts/Bulevar-Poster.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+:root{--paper:#F4F1EA;--ink:#1B1815;--ink70:#5A534C;--ink40:#8E877F;--accent:#C0552C;--line:rgba(27,24,21,.14)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Bould",Helvetica,sans-serif;font-size:16px;line-height:1.4;letter-spacing:.05em;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--accent)}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+  <div style="max-width:1180px;width:100%;margin:0 auto;padding:16px 28px;border-bottom:1px solid var(--line)">
+    <a href="./index.dc.html" style="display:inline-flex"><img src="./assets/logo-rco-ink.svg" alt="Reassembly" style="height:17px;width:auto;display:block"></a>
+  </div>
+  <section style="max-width:1180px;width:100%;margin:0 auto;padding:96px 28px;flex:1">
+    <div style="display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink40)">
+      <span style="width:26px;height:1px;background:var(--accent)"></span>Payment received
+    </div>
+    <h1 style="margin:26px 0 0;font-family:'Bulevar',sans-serif;font-weight:400;text-transform:uppercase;line-height:.9;font-size:clamp(60px,13vw,180px);letter-spacing:0">Welcome aboard</h1>
+    <p style="margin-top:32px;max-width:52ch;font-size:20px;font-weight:300;line-height:1.7;color:var(--ink70)">Your Business Kit 1.0 is booked. A receipt is on its way from Stripe, and we will email you within one business day to schedule the week-one workshops.</p>
+    <div style="margin-top:34px;font-size:13px;color:var(--ink40)">Reference: <span style="color:var(--ink70)">{{ ref }}</span></div>
+    <div style="margin-top:40px;display:flex;flex-wrap:wrap;gap:14px">
+      <a href="mailto:hello@reassembly.co" style="display:inline-flex;align-items:center;background:var(--ink);color:var(--paper);padding:16px 28px;border-radius:999px;font-size:14px;letter-spacing:.08em;text-transform:uppercase" style-hover="background:var(--accent)">Email us</a>
+      <a href="./index.dc.html" style="display:inline-flex;align-items:center;padding:16px 26px;border:1px solid var(--line);border-radius:999px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink70)" style-hover="border-color:var(--ink);color:var(--ink)">Back to site</a>
+    </div>
+  </section>
+  <div style="max-width:1180px;width:100%;margin:0 auto;padding:28px;border-top:1px solid var(--line);font-size:13px;color:var(--ink40)">© 2026 Reassembly. All rights reserved.</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ref: "—" };
+  componentDidMount() {
+    const id = new URLSearchParams(window.location.search).get("session_id");
+    if (id) this.setState({ ref: id.slice(0, 12) + "…" });
+  }
+  renderVals() { return { ref: this.state.ref }; }
+}
+</script>
+</body>
+</html>
