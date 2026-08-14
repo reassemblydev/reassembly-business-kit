@@ -15,14 +15,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Six+Caps&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://js.stripe.com/v3"></script>
 <style>
+@font-face{font-family:"Bould";src:url("./fonts/bould-light.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Bould";src:url("./fonts/bould-regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Bould";src:url("./fonts/bould-medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Bulevar";src:url("./fonts/Bulevar-Poster.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Bulevar Text";src:url("./fonts/Bulevar-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
 :root{
   --paper:#F4F1EA; --paper2:#EAE5DA; --ink:#1B1815; --ink70:#5A534C; --ink40:#8E877F;
   --accent:#C0552C; --accent2:#2C7C6E; --line:rgba(27,24,21,.14);
   --display:"Archivo","Manufaktur",Helvetica,sans-serif;
-  --body:"Outfit","Bould",Helvetica,sans-serif;
+  --body:"Bould","Outfit",Helvetica,sans-serif;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.4;letter-spacing:.05em;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:400;font-size:16px;line-height:1.4;letter-spacing:.05em;-webkit-font-smoothing:antialiased;text-wrap:pretty}
 a{color:var(--ink);text-decoration:none}
 a:hover{color:var(--accent)}
 h1,h2,h3{margin:0;font-family:var(--display);font-style:italic;font-weight:700;letter-spacing:-.015em;line-height:1.15}
@@ -39,7 +44,7 @@ input,textarea,button{font:inherit;letter-spacing:inherit;color:inherit}
 
 <header style="position:sticky;top:0;z-index:20;background:rgba(244,241,234,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)">
   <div style="max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:28px">
-    <a href="#top" style="font-family:var(--display);font-style:italic;font-weight:700;font-size:20px;letter-spacing:-.02em">reassembly<span style="color:var(--accent)">.</span></a>
+    <a href="#top" style="display:flex;align-items:center"><img src="./assets/logo-rco-ink.svg" alt="Reassembly" style="height:17px;width:auto;display:block"></a>
     <nav style="margin-left:auto;display:flex;align-items:center;gap:26px;font-size:13px;letter-spacing:.08em;text-transform:uppercase">
       <a href="#services" style="color:var(--ink70)">Services</a>
       <a href="#process" style="color:var(--ink70)">Process</a>
@@ -52,10 +57,10 @@ input,textarea,button{font:inherit;letter-spacing:inherit;color:inherit}
 
 <section id="top" style="max-width:1180px;margin:0 auto;padding:96px 28px 84px">
   <div data-reveal style="display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink40)">
-    <span style="width:26px;height:1px;background:var(--accent)"></span>Digital business tools &amp; services
+    <span style="width:26px;height:1px;background:var(--accent)"></span>Digital tools &amp; services that harness
   </div>
-  <h1 data-reveal ref="{{ fitRef }}" style="margin-top:26px;font-family:'Six Caps',sans-serif;font-style:normal;font-weight:400;text-transform:uppercase;white-space:nowrap;line-height:.84;letter-spacing:.01em;font-size:9vw">Attention + Efficiency = Solution</h1>
-  <p data-reveal style="margin-top:32px;max-width:56ch;font-size:20px;line-height:1.7;color:var(--ink70)">We build the identity, the site, the social presence and the automations that run underneath — as one connected system instead of five disconnected vendors.</p>
+  <h1 data-reveal ref="{{ fitRef }}" style="margin-top:26px;font-family:'Bulevar','Six Caps',sans-serif;font-style:normal;font-weight:400;text-transform:uppercase;white-space:nowrap;line-height:.86;letter-spacing:0;font-size:9vw;width:100%">Attention + Efficiency</h1>
+  <p data-reveal style="margin-top:32px;max-width:56ch;font-size:20px;font-weight:300;line-height:1.7;letter-spacing:.05em;color:var(--ink70)">Brand Identity Design gets your business attention. Efficiency gives it the competitive advantage that gives you freedom to live the life you dreamed of when you started your business.</p>
   <div data-reveal style="margin-top:40px;display:flex;flex-wrap:wrap;gap:14px;align-items:center">
     <a href="#kit" style="display:inline-flex;align-items:center;background:var(--accent);color:#fff;padding:16px 28px;border-radius:999px;font-size:14px;letter-spacing:.08em;text-transform:uppercase" style-hover="background:var(--ink)">Business Kit 1.0</a>
     <a href="#contact" style="display:inline-flex;align-items:center;padding:16px 26px;border:1px solid var(--line);border-radius:999px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink70)" style-hover="border-color:var(--ink);color:var(--ink)">Talk to us</a>
@@ -253,7 +258,7 @@ input,textarea,button{font:inherit;letter-spacing:inherit;color:inherit}
 
 <footer style="border-top:1px solid var(--line)">
   <div style="max-width:1180px;margin:0 auto;padding:36px 28px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink40)">
-    <div style="font-family:var(--display);font-style:italic;font-weight:700;font-size:18px;color:var(--ink)">reassembly<span style="color:var(--accent)">.</span></div>
+    <img src="./assets/logo-rco-ink.svg" alt="Reassembly" style="height:15px;width:auto;display:block">
     <div style="display:flex;flex-wrap:wrap;gap:22px">
       <a href="#top" style="color:var(--ink40)">Privacy</a>
       <a href="#top" style="color:var(--ink40)">Terms</a>
@@ -334,13 +339,22 @@ class Component extends DCLogic {
 
   fit = (el) => {
     if (!el || !el.parentElement) return;
-    const avail = el.parentElement.clientWidth - 56;
+    const p = el.parentElement;
+    const cs = getComputedStyle(p);
+    const avail = p.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
     const prevDisplay = el.style.display;
     el.style.display = "inline-block";
     el.style.fontSize = "100px";
-    const w = el.getBoundingClientRect().width;
+    let w = 0;
+    const node = el.firstChild;
+    if (node && node.nodeType === 3) {
+      const r = document.createRange();
+      r.selectNodeContents(el);
+      w = r.getBoundingClientRect().width;
+    }
+    if (!w) w = el.getBoundingClientRect().width;
     el.style.display = prevDisplay;
-    if (w) el.style.fontSize = (100 * avail / w).toFixed(2) + "px";
+    if (w) el.style.fontSize = (100 * avail / w * 1.008).toFixed(2) + "px";
   };
 
   setFitRef = (el) => {
