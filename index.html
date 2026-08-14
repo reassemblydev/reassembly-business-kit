@@ -270,7 +270,7 @@ input,textarea,button{font:inherit;letter-spacing:inherit;color:inherit}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;priceLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;$12,400&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Business Kit&quot;},&quot;payButtonLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Pay with Stripe&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Business Kit&quot;},&quot;stripePublishableKey&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;pk_test_STUB_replace_me&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Stripe&quot;},&quot;checkoutEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;/api/create-checkout-session&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Stripe&quot;},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C0552C&quot;,&quot;options&quot;:[&quot;#C0552C&quot;,&quot;#2C7C6E&quot;,&quot;#1B1815&quot;,&quot;#8A5BC2&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;paperColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#F4F1EA&quot;,&quot;options&quot;:[&quot;#F4F1EA&quot;,&quot;#F6F5F2&quot;,&quot;#EFEAE0&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;reveals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;priceLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;$4,999&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Business Kit&quot;},&quot;payButtonLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Buy&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Business Kit&quot;},&quot;stripePublishableKey&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;pk_test_STUB_replace_me&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Stripe&quot;},&quot;checkoutEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;/api/create-checkout-session&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Stripe&quot;},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#C0552C&quot;,&quot;options&quot;:[&quot;#C0552C&quot;,&quot;#2C7C6E&quot;,&quot;#1B1815&quot;,&quot;#3D3082&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;paperColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#F4F1EA&quot;,&quot;options&quot;:[&quot;#F4F1EA&quot;,&quot;#F6F5F2&quot;,&quot;#EFEAE0&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;reveals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;}}">
 class Component extends DCLogic {
   state = { payNote: "" };
 
@@ -370,8 +370,8 @@ class Component extends DCLogic {
   renderVals() {
     return {
       fitRef: this.setFitRef,
-      priceLabel: this.props.priceLabel ?? "$12,400",
-      payButtonLabel: this.props.payButtonLabel ?? "Pay with Stripe",
+      priceLabel: this.props.priceLabel ?? "$4,999",
+      payButtonLabel: this.props.payButtonLabel ?? "Buy",
       payNote: this.state.payNote,
       startCheckout: this.startCheckout,
       submitContact: this.submitContact
